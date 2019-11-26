@@ -1,0 +1,42 @@
+{
+  "name": "graphql-mocker",
+  "version": "1.3.5",
+  "description": "Tool for GraphQL schema managing and split it. USe GraphQl-Faker",
+  "main": "dist/server.js",
+  "bin": "index.js",
+  "scripts": {
+    "cli": "node index.js",
+    "mock": "node src/tools/scripts/mock.js",
+    "merge_complete_schema": "node src/tools/scripts/complete_schema.js",
+    "extract_api_schema": "node src/tools/scripts/extract_api.js",
+    "save": "node src/tools/scripts/save.js",
+    "compile": "rm -rf /dist &&  npm run copyfiles && tsc",
+    "copyfiles": "copyfiles  \"src/**/*.ejs\" \"src/**/*.js\" \"src/**/*.json\" dist -u 1",
+    "dev": "npm run compile && node --inspect ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/travelgateX/graphql-mocker.git"
+  },
+  "author": "TravegateX <info@travelgatex.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/travelgateX/graphql-mocker/issues"
+  },
+  "homepage": "https://github.com/travelgateX/graphql-mocker#readme",
+  "devDependencies": {
+    "@types/body-parser": "*",
+    "@types/express": "*",
+    "@types/graphql": "*",
+    "@types/node": "*"
+  },
+  "dependencies": {
+    "apollo-server-express": "*",
+    "body-parser": "*",
+    "copyfiles": "^2.1.0",
+    "express": "*",
+    "graphql-faker": "github:amian84/graphql-faker#distFolder",
+    "typescript": "*",
+    "graphql": "*"
+  }
+}
