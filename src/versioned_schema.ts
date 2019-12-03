@@ -16,6 +16,11 @@ type VersionedSchema{
     version: String!
 
     """
+    String with the date of the last commit from graphql-schema repository
+    """
+    date: String!
+
+    """
     Advise message with posible error, info or warning
     """
     adviseMessage: AdviseMessage
@@ -62,6 +67,6 @@ enum AdviseMessageLevel {
 
 type Query{
     getSchema: VersionedSchema!
-    getApiSchema(apiPath:String!): VersionedSchema!
+    getApiSchema(productName: String! apiPath:String!): VersionedSchema!
 }
 `

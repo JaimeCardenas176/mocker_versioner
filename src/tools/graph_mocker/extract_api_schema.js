@@ -309,7 +309,7 @@ function extractApiAndDepends(_schemaProject, _apiName){
  * @param {Path of structure folder of schema} _schemaProject 
  * @param {Api name} _apiName 
  */
-function getStringApiSchema(_schemaProject, _apiName){
+function getStringApiSchema(_schemaProject, {product: _productName, api: _apiName}){
     _schemaProject = (_schemaProject.endsWith(path.sep)) ? _schemaProject : _schemaProject + path.sep; //Add "/" if necessary to avoid furture appends
     var versionedSchema = {
         Schema:"",
@@ -325,7 +325,7 @@ function getStringApiSchema(_schemaProject, _apiName){
         }
         return versionedSchema;
     }
-    var wApiPath = _schemaProject + _apiName + path.sep;
+    var wApiPath = _schemaProject + _productName + path.sep + _apiName;
    
     wApiPath = (wApiPath.endsWith(path.sep)) ? wApiPath : wApiPath + path.sep; //Add "/" if necessary to avoid furture appends
     if (!fs.existsSync(wApiPath)) {

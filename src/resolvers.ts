@@ -3,16 +3,13 @@ const getStringApiSchema = require('./tools/graph_mocker/extract_api_schema').ge
 const mocker = require('./tools/graph_mocker/mocker');
 
 
-function versionedSchema(_apiPath=null){    
+function versionedSchema(){    
     var _schema = "";
-    if(_apiPath){
-        _schema = mocker.getStringApiSchema("./graphql-schema", _apiPath);
-    }else{
-       _schema = mocker.getStringSchema("./graphql-schema", null);
-    }
+    _schema = mocker.getStringSchema("./graphql-schema", null);
     var versionedSchema = {
         Schema:_schema,
         version: '1.0.0',
+        date: 'date...',
         adviseMessage: null
     };
     return versionedSchema;
@@ -23,7 +20,7 @@ export const resolvers = {
         getSchema:(root, args, context) => versionedSchema(),
         getApiSchema: (root, args, context) => {
 
-            return getStringApiSchema("./graphql-schema", args["apiPath"])
+            return getStringApiSchema("./graphql-schema", {product: args._productName, api: args._apiPath})
         }
         
     }, 

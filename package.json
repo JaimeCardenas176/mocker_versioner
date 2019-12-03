@@ -11,7 +11,7 @@
     "extract_api_schema": "node src/tools/scripts/extract_api.js",
     "save": "node src/tools/scripts/save.js",
     "compile": "rm -rf /dist &&  npm run copyfiles && tsc",
-    "copyfiles": "copyfiles  \"src/**/*.ejs\" \"src/**/*.js\" \"src/**/*.json\" dist -u 1",
+    "copyfiles": "copyfiles  \"src/**/*.ejs\" \"src/**/*.js\" \"src/**/*.json\" \"src/.env\" dist -u 1",
     "dev": "npm run compile && node --inspect ."
   },
   "repository": {
@@ -28,7 +28,9 @@
     "@types/body-parser": "*",
     "@types/express": "*",
     "@types/graphql": "*",
-    "@types/node": "*"
+    "@types/node": "*",
+    "@types/js-base64": "*",
+    "@types/request": "*"
   },
   "dependencies": {
     "apollo-server-express": "*",
@@ -37,6 +39,9 @@
     "express": "*",
     "graphql-faker": "github:amian84/graphql-faker#distFolder",
     "typescript": "*",
-    "graphql": "*"
+    "graphql": "*",
+    "js-base64": "*",
+    "request": "*",
+    "dotenv": "*"
   }
 }
