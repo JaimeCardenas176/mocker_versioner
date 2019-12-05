@@ -62,3 +62,4 @@ typings/
 
 graphql-mocker
 .vscode
+dist
