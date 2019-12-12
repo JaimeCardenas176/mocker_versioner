@@ -11,7 +11,7 @@
     "extract_api_schema": "node src/tools/scripts/extract_api.js",
     "save": "node src/tools/scripts/save.js",
     "compile": "rm -rf /dist &&  npm run copyfiles && tsc",
-    "copyfiles": "copyfiles  \"src/**/*.ejs\" \"src/**/*.js\" \"src/**/*.json\" \"src/.env\" dist -u 1",
+    "copyfiles": "copyfiles  \"src/**/*.ejs\" \"src/**/*.js\" \"src/**/*.sh\" \"src/**/*.json\" dist -u 1",
     "dev": "npm run compile && node --inspect ."
   },
   "repository": {

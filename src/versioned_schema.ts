@@ -48,25 +48,34 @@ type AdviseMessage {
 
 
 enum AdviseMessageLevel {
-    """
-     Waringn message.
-    """
-    WARN
+  """
+  Waringn message.
+  """
+  WARN
     
-    """
-     Error message.
-    """
-    ERROR
+  """
+  Error message.
+  """
+  ERROR
     
-    """
-     Info message.
-    """
-    INFO
-  }
+  """
+  Info message.
+  """
+  INFO
+}
   
+type StatusResult{
+  status: ID!
+  adviseMessage: AdviseMessage
+}
+
 
 type Query{
     getSchema: VersionedSchema!
     getApiSchema(productName: String! apiPath:String!): VersionedSchema!
+}
+
+type Mutation{
+    refreshBaseSchema: StatusResult!
 }
 `

@@ -1,16 +1,14 @@
 import {Base64} from "js-base64";
 import * as request from "request";
 
-//core/apps/mocker_online/submodule_conf/ENTORNO
-
 
 export class Consul{
 
-    public static loadConsulKey(key){
-        return new Promise(function(resolve, reject){
+    public static loadConsulKey(key): Promise<string> {
+        return new Promise((resolve, reject) => {
             Consul.get(key + "/" + process.env.TGX_DEPLOY_ENV).then((value)=>{
                 resolve(value);
-            }).catch((error)=>{
+            }).catch( (error)=>{
                 Consul.get(key + "/default").then((value)=>{
                     resolve(value);
                 }).catch((error) => {
@@ -21,8 +19,8 @@ export class Consul{
         });
     }
     
-    private static sendConsul(options){
-        return new Promise(function(resolve, reject){
+    private static sendConsul(options): Promise<any> {
+        return new Promise((resolve, reject) => {
             request(options, function(error, response, body) {
                 if (error || !body){
                     reject("Error getting consul");
@@ -34,8 +32,8 @@ export class Consul{
         });
     }
 
-    public static async get(key, pos=null) {
-        return new Promise(function(resolve, reject){
+    private static  get(key, pos=null): Promise<any> {
+        return new Promise((resolve, reject) => {
             const consulServers = process.env.TGX_CONSUL_NODES;
             const consulToken = process.env.TGX_CONSUL_TOKEN;
             const nginxUser = process.env.TGX_CONSUL_AUTH_USER;
@@ -48,7 +46,7 @@ export class Consul{
                 if (pos < 0){
                     reject("Can not connect with consul");
                 }
-                if (!pos){
+                if (pos == undefined || pos == null){
                     pos = i-1;
                 }
                 var consulNode = servers[pos];
